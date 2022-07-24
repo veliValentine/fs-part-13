@@ -1,0 +1,37 @@
+{
+  "name": "fs-part-13",
+  "version": "1.0.0",
+  "description": "fullstack cource part 13",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veliValentine/fs-part-13.git"
+  },
+  "keywords": [
+    "fullstack",
+    "sql",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "velivalentine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veliValentine/fs-part-13/issues"
+  },
+  "homepage": "https://github.com/veliValentine/fs-part-13#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "sequelize": "^6.21.3"
+  }
+}
