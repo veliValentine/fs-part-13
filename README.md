@@ -7,3 +7,8 @@ This repository is for exercise related to [full stack open mooc cource](https:/
 1. `git clone git@github.com:veliValentine/fs-part-13.git`
 2. `cd fs-part-13/`
 3. `npm start`
+
+## Env variables
+| Variable | Default value | Desciption     |
+| -------- | ------------- | -------------- |
+| `DB_URL` | `null`        | Sql server url |
