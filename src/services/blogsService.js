@@ -7,15 +7,34 @@ const getOneById = async (id) => await Blog.findByPk(id)
 const create = async (blog) => await Blog.create(blog)
 
 const remove = async (id) => {
-  if (await getOneById(id)) {
-    await Blog.destroy({ where: { id }, limit: 1 })
-    return
+  await throwBlogNotExists(id)
+  await Blog.destroy({ where: { id }, limit: 1 })
+}
+
+const update = async (id, updateBlog) => {
+  await throwBlogNotExists(id)
+  const oldBlog = await getOneById(id)
+  const newBlog = {
+    ...oldBlog,
+    ...updateBlog
   }
-  throw new Error(`Blog with id '${id}' not found`)
+  const [, updatedBlog] = await Blog.update(newBlog, {
+    where: { id },
+    limit: 1
+  })
+  return updateBlog
+}
+
+const throwBlogNotExists = async (id) => {
+  const blog = await getOneById(id)
+  if (blog === undefined) {
+    throw new Error(`Blog with id '${id}' not found`)
+  }
 }
 
 export default {
   getAll,
   create,
-  remove
+  remove,
+  update
 }

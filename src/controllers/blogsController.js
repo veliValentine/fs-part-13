@@ -26,6 +26,13 @@ blogsController.delete('/:id', (req, res) => {
   }, res)
 })
 
+blogsController.put('/:id', (req, res) => {
+  asyncErrorWrapper(async () => {
+    const newBlog = await blogsService.update(req.params.id, req.body)
+    res.json(newBlog)
+  }, res)
+})
+
 const asyncErrorWrapper = async (callback, res) => {
   try {
     return await callback()
