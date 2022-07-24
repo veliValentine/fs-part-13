@@ -1,6 +1,7 @@
 import express from 'express'
 import 'express-async-errors'
 import blogsController from './controllers/blogsController.js'
+import userController from './controllers/userController.js'
 import errorMiddleware from './middlewares/errorMiddleware.js'
 import notFound from './middlewares/notfound.js'
 
@@ -12,6 +13,7 @@ app.get('/health', (_req, res) => {
 })
 
 app.use('/api/blogs', blogsController)
+app.use('/api/users', userController)
 
 app.use(errorMiddleware)
 

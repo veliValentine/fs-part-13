@@ -22,7 +22,7 @@ const update = async (id, updateBlog) => {
     where: { id },
     limit: 1
   })
-  return updateBlog
+  return updatedBlog
 }
 
 const throwBlogNotExists = async (id) => {

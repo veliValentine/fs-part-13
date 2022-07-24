@@ -14,9 +14,7 @@ blogsController.post('/', async (req, res) => {
 })
 
 blogsController.delete('/:id', async (req, res) => {
-  console.log('before')
   await blogsService.remove(req.params.id)
-  console.log('after')
   res.status(204).send()
 })
 
