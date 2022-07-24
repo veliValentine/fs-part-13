@@ -1,10 +1,14 @@
 import models from '../models/index.js'
 
-const { User } = models
+const { User, Blog } = models
 
 const create = async (user) => await User.create(user)
 
-const getAll = async () => await User.findAll()
+const getAll = async () => await User.findAll({
+  include: {
+    model: Blog
+  }
+})
 
 const findFirst = async (searchOptions) => {
   const user = await User.findOne({

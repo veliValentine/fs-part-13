@@ -1,8 +1,15 @@
 import models from '../models/index.js'
 
-const { Blog } = models
+const { Blog, User } = models
 
-const getAll = async () => await Blog.findAll()
+const getAll = async (userId) => await Blog.findAll({
+  attributes: {
+    exclude: ['userId']
+  },
+  include: {
+    model: User
+  }
+})
 
 const getOneById = async (id) => await Blog.findByPk(id)
 
