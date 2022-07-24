@@ -8,9 +8,9 @@ const getOneById = async (id) => await Blog.findByPk(id)
 
 const create = async (blog, userId) => await Blog.create({ ...blog, userId })
 
-const remove = async (id) => {
+const remove = async (id, userId) => {
   await throwBlogNotExists(id)
-  await Blog.destroy({ where: { id }, limit: 1 })
+  await Blog.destroy({ where: { id, userId }, limit: 1 })
 }
 
 const update = async (id, updateBlog) => {
