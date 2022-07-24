@@ -1,10 +1,12 @@
-import Blog from '../models/Blog.js'
+import models from '../models/index.js'
+
+const { Blog } = models
 
 const getAll = async () => await Blog.findAll()
 
 const getOneById = async (id) => await Blog.findByPk(id)
 
-const create = async (blog) => await Blog.create(blog)
+const create = async (blog, userId) => await Blog.create({ ...blog, userId })
 
 const remove = async (id) => {
   await throwBlogNotExists(id)

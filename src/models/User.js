@@ -27,6 +27,4 @@ User.init({
   modelName: 'users'
 })
 
-User.sync()
-
 export default User

@@ -9,7 +9,7 @@ blogsController.get('/', async (_req, res) => {
 })
 
 blogsController.post('/', async (req, res) => {
-  const blogs = await blogsService.create(req.body)
+  const blogs = await blogsService.create(req.body, req.decodedToken.id)
   res.json(blogs)
 })
 

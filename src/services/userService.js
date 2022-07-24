@@ -1,17 +1,16 @@
-import User from '../models/User.js'
+import models from '../models/index.js'
+
+const { User } = models
 
 const create = async (user) => await User.create(user)
 
 const getAll = async () => await User.findAll()
 
 const findFirst = async (searchOptions) => {
-  const users = await User.findAll({
+  const user = await User.findOne({
     where: searchOptions
   })
-  if (users.length > 0) {
-    return users[0]
-  }
-  return null
+  return user
 }
 
 const update = async (username, updateUser) => {

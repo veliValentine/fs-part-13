@@ -31,6 +31,4 @@ Blog.init({
   timestamps: false
 })
 
-Blog.sync()
-
 export default Blog

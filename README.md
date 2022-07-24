@@ -9,7 +9,8 @@ This repository is for exercise related to [full stack open mooc cource](https:/
 3. `npm start`
 
 ## Env variables
-| Variable | Default value | Desciption     |
-| -------- | ------------- | -------------- |
-| `PORT`   | `3000`        | Server port    |
-| `DB_URL` | `null`        | Sql server url |
+| Variable | Default value | Desciption                  |
+| -------- | ------------- | --------------------------- |
+| `PORT`   | `3000`        | Server port                 |
+| `DB_URL` | `null`        | Sql server url              |
+| `SECRET` | `secret`      | secret value for jwt tokens |
