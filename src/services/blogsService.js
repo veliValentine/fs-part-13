@@ -27,7 +27,7 @@ const update = async (id, updateBlog) => {
 
 const throwBlogNotExists = async (id) => {
   const blog = await getOneById(id)
-  if (blog === undefined) {
+  if (!blog) {
     throw new Error(`Blog with id '${id}' not found`)
   }
 }
