@@ -2,7 +2,7 @@ import models from '../models/index.js'
 
 const { Blog, User } = models
 
-const getAll = async (userId) => await Blog.findAll({
+const getAll = async () => await Blog.findAll({
   attributes: {
     exclude: ['userId']
   },
