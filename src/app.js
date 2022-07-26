@@ -1,5 +1,6 @@
 import express from 'express'
 import 'express-async-errors'
+import authorController from './controllers/authorController.js'
 import blogsController from './controllers/blogsController.js'
 import loginController from './controllers/loginController.js'
 import userController from './controllers/userController.js'
@@ -21,6 +22,7 @@ app.use(tokenExtractor)
 
 app.use('/api/blogs', blogsController)
 app.use('/api/users', userController)
+app.use('/api/authors', authorController)
 
 app.use(errorMiddleware)
 
