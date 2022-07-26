@@ -1,15 +1,28 @@
 import models from '../models/index.js'
+import { Op } from 'sequelize'
 
 const { Blog, User } = models
 
-const getAll = async () => await Blog.findAll({
-  attributes: {
-    exclude: ['userId']
-  },
-  include: {
-    model: User
+const getAll = async (searchOptions) => {
+  const where = {}
+  const { title } = searchOptions
+  if (title) {
+    const titleSearch = {
+      [Op.iLike]: `%${title}%`,
+    }
+    where.title = titleSearch
   }
-})
+
+  return await Blog.findAll({
+    where,
+    attributes: {
+      exclude: ['userId']
+    },
+    include: {
+      model: User
+    }
+  })
+}
 
 const getOneById = async (id) => await Blog.findByPk(id)
 

@@ -3,8 +3,12 @@ import blogsService from '../services/blogsService.js';
 
 const blogsController = Router()
 
-blogsController.get('/', async (_req, res) => {
-  const blogs = await blogsService.getAll()
+blogsController.get('/', async (req, res) => {
+  const { search } = req.query
+  const searchOptions = {
+    title: search
+  }
+  const blogs = await blogsService.getAll(searchOptions)
   res.json(blogs)
 })
 
