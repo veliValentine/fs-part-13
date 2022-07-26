@@ -6,7 +6,8 @@ const blogsController = Router()
 blogsController.get('/', async (req, res) => {
   const { search } = req.query
   const searchOptions = {
-    title: search
+    title: search,
+    author: search
   }
   const blogs = await blogsService.getAll(searchOptions)
   res.json(blogs)

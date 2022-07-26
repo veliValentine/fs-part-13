@@ -5,12 +5,15 @@ const { Blog, User } = models
 
 const getAll = async (searchOptions) => {
   const where = {}
-  const { title } = searchOptions
-  if (title) {
+  const { title, author } = searchOptions
+  if (title || author) {
     const titleSearch = {
       [Op.iLike]: `%${title}%`,
     }
-    where.title = titleSearch
+    const authorSearch = {
+      [Op.iLike]: `%${author}%`,
+    }
+    where[Op.or] = [{ title: titleSearch }, { author: authorSearch }]
   }
 
   return await Blog.findAll({
