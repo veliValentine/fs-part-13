@@ -23,7 +23,10 @@ const getAll = async (searchOptions) => {
     },
     include: {
       model: User
-    }
+    },
+    order: [
+      ['likes', 'DESC']
+    ]
   })
 }
 
