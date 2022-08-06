@@ -9,8 +9,9 @@ readingListController.post('/', async (req, res) => {
 })
 
 readingListController.put('/:id', async (req, res) => {
+  const { id: userId } = req.decodedToken
   const { id } = req.params
-  const updatedReadinList = await readinglistService.update(id, req.body)
+  const updatedReadinList = await readinglistService.update(id, userId, req.body)
   res.json(updatedReadinList)
 })
 
