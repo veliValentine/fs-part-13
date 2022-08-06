@@ -1,27 +1,21 @@
-const { User, Blog, ReadingList } = require('../models/index.js')
+const { User, Blog } = require('../models/index.js')
 
 const create = async (user) => await User.create(user)
 
 const getAll = async () => await User.findAll({
   include: {
-    model: Blog,
-    through: {
-      attributes: []
-    }
+    model: Blog
   }
 })
 
 const findOne = async (searchOptions) => {
   const user = await User.findOne({
     where: searchOptions,
-    attributes: {
-      exclude: ['createdAt', 'updatedAt', 'id']
-    },
     include: {
       model: Blog,
       as: 'user_blog',
       through: {
-        attributes: []
+        attributes: ['isRead', 'id']
       }
     }
   })
