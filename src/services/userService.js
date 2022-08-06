@@ -1,24 +1,35 @@
-const models = require('../models/index.js')
-
-const { User, Blog } = models
+const { User, Blog, ReadingList } = require('../models/index.js')
 
 const create = async (user) => await User.create(user)
 
 const getAll = async () => await User.findAll({
   include: {
-    model: Blog
+    model: Blog,
+    through: {
+      attributes: []
+    }
   }
 })
 
-const findFirst = async (searchOptions) => {
+const findOne = async (searchOptions) => {
   const user = await User.findOne({
-    where: searchOptions
+    where: searchOptions,
+    attributes: {
+      exclude: ['createdAt', 'updatedAt', 'id']
+    },
+    include: {
+      model: Blog,
+      as: 'user_blog',
+      through: {
+        attributes: []
+      }
+    }
   })
   return user
 }
 
 const update = async (username, updateUser) => {
-  const foundUser = await findFirst({ username })
+  const foundUser = await findOne({ username })
   if (!foundUser) {
     throwNotFoundError(`username '${username}'`)
   }
@@ -39,7 +50,7 @@ const throwNotFoundError = (text) => {
 
 module.exports = {
   create,
-  findFirst,
+  findOne,
   getAll,
   update
 }

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 
 const up = async ({ context: queryInterface }) => {
-  await queryInterface.createTable('reading_list', {
+  await queryInterface.createTable('reading_lists', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -25,7 +25,7 @@ const up = async ({ context: queryInterface }) => {
   })
 }
 const down = async ({ context: queryInterface }) => {
-  await queryInterface.dropTable('users', 'createdAt')
+  await queryInterface.dropTable('reading_lists')
 }
 
 const migration = {

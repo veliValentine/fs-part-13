@@ -19,6 +19,7 @@ VALUES
 DROP TABLE migrations;
 DROP TABLE blogs;
 DROP TABLE users;
+DROP TABLE reading_lists;
 
 /*  */
 /*  */
