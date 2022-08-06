@@ -8,4 +8,10 @@ readingListController.post('/', async (req, res) => {
   res.json(addedReadingList)
 })
 
+readingListController.put('/:id', async (req, res) => {
+  const { id } = req.params
+  const updatedReadinList = await readinglistService.update(id, req.body)
+  res.json(updatedReadinList)
+})
+
 module.exports = readingListController
