@@ -10,4 +10,4 @@ const errorMiddleware = (error, req, res, next) => {
   next()
 }
 
-export default errorMiddleware
+module.exports = errorMiddleware

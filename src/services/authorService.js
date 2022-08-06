@@ -1,7 +1,5 @@
-import sequelize from 'sequelize'
-import models from '../models/index.js'
-
-const { Blog } = models
+const sequelize = require('sequelize')
+const { Blog } = require('../models/index.js')
 
 const getAll = async () => {
   return Blog.findAll({
@@ -14,6 +12,6 @@ const getAll = async () => {
   })
 }
 
-export default {
+module.exports = {
   getAll
 }

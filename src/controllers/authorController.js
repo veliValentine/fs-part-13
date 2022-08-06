@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import authorService from '../services/authorService.js';
+const { Router } = require('express')
+const authorService = require('../services/authorService.js')
 
 const authorController = Router()
 
@@ -8,4 +8,4 @@ authorController.get('/', async (_req, res) => {
   res.json(authors)
 })
 
-export default authorController
+module.exports = authorController

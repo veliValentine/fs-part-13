@@ -2,7 +2,6 @@
   "name": "fs-part-13",
   "version": "1.0.0",
   "description": "fullstack cource part 13",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
@@ -34,6 +33,7 @@
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "umzug": "^3.1.1"
   }
 }

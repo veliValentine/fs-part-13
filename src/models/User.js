@@ -1,6 +1,5 @@
-import types from 'sequelize'
-import sequelizeServise from '../services/sequelizeServise.js'
-const { DataTypes, Model } = types
+const { DataTypes, Model } = require('sequelize')
+const sequelizeServise = require('../services/sequelizeServise.js')
 
 class User extends Model { }
 
@@ -27,4 +26,4 @@ User.init({
   modelName: 'users'
 })
 
-export default User
+module.exports = User

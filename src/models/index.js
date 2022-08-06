@@ -1,14 +1,11 @@
-import Blog from './Blog.js';
-import User from './User.js'
+const Blog = require('./Blog.js')
+const User = require('./User.js')
 
 User.hasMany(Blog)
 
 Blog.belongsTo(User)
 
-Blog.sync({ alter: true })
-User.sync({ alter: true })
-
-export default {
+module.exports = {
   Blog,
   User
 }

@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken'
-import config from '../utils/config.js'
+const jwt = require('jsonwebtoken')
+const config = require('../utils/config.js')
 
 const tokenExtractor = (req, res, next) => {
   const authorization = req.get('authorization')
@@ -15,4 +15,4 @@ const tokenExtractor = (req, res, next) => {
   next()
 }
 
-export default tokenExtractor
+module.exports = tokenExtractor

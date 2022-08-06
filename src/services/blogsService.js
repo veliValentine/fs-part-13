@@ -1,5 +1,5 @@
-import models from '../models/index.js'
-import { Op } from 'sequelize'
+const models = require('../models/index.js')
+const { Op } = require('sequelize')
 
 const { Blog, User } = models
 
@@ -60,7 +60,7 @@ const throwBlogNotExists = async (id) => {
   }
 }
 
-export default {
+module.exports ={
   getAll,
   create,
   remove,

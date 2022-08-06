@@ -1,4 +1,4 @@
-import 'dotenv/config'
+require('dotenv/config')
 
 const {
   PORT = 3000,
@@ -6,7 +6,7 @@ const {
   SECRET = 'secret'
 } = process.env
 
-export default {
+module.exports = {
   PORT,
   DB_URL,
   SECRET

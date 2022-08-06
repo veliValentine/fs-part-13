@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import userService from '../services/userService.js';
+const { Router } = require( 'express')
+const userService = require( '../services/userService.js')
 
 const userController = Router()
 
@@ -18,4 +18,4 @@ userController.put('/:username', async (req, res) => {
   res.json(updatedUser)
 })
 
-export default userController
+module.exports = userController

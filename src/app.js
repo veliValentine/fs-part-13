@@ -1,12 +1,12 @@
-import express from 'express'
-import 'express-async-errors'
-import authorController from './controllers/authorController.js'
-import blogsController from './controllers/blogsController.js'
-import loginController from './controllers/loginController.js'
-import userController from './controllers/userController.js'
-import errorMiddleware from './middlewares/errorMiddleware.js'
-import notFound from './middlewares/notfound.js'
-import tokenExtractor from './middlewares/tokenExtractor.js'
+const express = require('express')
+require('express-async-errors')
+const authorController = require('./controllers/authorController.js')
+const blogsController = require('./controllers/blogsController.js')
+const loginController = require('./controllers/loginController.js')
+const userController = require('./controllers/userController.js')
+const errorMiddleware = require('./middlewares/errorMiddleware.js')
+const notFound = require('./middlewares/notfound.js')
+const tokenExtractor = require('./middlewares/tokenExtractor.js')
 
 const app = express()
 app.use(express.json());
@@ -28,4 +28,4 @@ app.use(errorMiddleware)
 
 app.use(notFound)
 
-export default app
+module.exports = app

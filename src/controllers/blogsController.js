@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import blogsService from '../services/blogsService.js';
+const { Router } = require('express')
+const blogsService = require('../services/blogsService')
 
 const blogsController = Router()
 
@@ -28,4 +28,4 @@ blogsController.put('/:id', async (req, res) => {
   res.json(newBlog)
 })
 
-export default blogsController
+module.exports = blogsController

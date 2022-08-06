@@ -1,6 +1,5 @@
-import types from 'sequelize'
-import sequelizeServise from '../services/sequelizeServise.js'
-const { DataTypes, Model } = types
+const { DataTypes, Model } = require('sequelize')
+const sequelizeServise = require('../services/sequelizeServise.js')
 
 class Blog extends Model { }
 
@@ -31,4 +30,4 @@ Blog.init({
   timestamps: false
 })
 
-export default Blog
+module.exports = Blog

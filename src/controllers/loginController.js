@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import userService from '../services/userService.js';
-import jwt from 'jsonwebtoken'
-import config from '../utils/config.js';
+const { Router } = require('express')
+const userService = require('../services/userService.js')
+const jwt = require('jsonwebtoken')
+const config = require('../utils/config.js')
 
 const loginController = Router()
 
@@ -34,4 +34,4 @@ const getToken = (user) => {
   return jwt.sign(userToken, config.SECRET)
 }
 
-export default loginController
+module.exports = loginController

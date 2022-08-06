@@ -1,4 +1,4 @@
-import models from '../models/index.js'
+const models = require('../models/index.js')
 
 const { User, Blog } = models
 
@@ -37,7 +37,7 @@ const throwNotFoundError = (text) => {
   throw new Error(`User with ${text} not found`)
 }
 
-export default {
+module.exports = {
   create,
   findFirst,
   getAll,
