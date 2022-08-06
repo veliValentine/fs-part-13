@@ -1,4 +1,6 @@
 const errorMiddleware = (error, req, res, next) => {
+  console.error('error:', error?.message ?? error)
+  console.error('error json:', JSON.stringify(error))
   if (error instanceof Error) {
     const errorResponse = {
       error: {

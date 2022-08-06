@@ -42,21 +42,10 @@ const up = async ({ context: queryInterface }) => {
       }
     }
   })
-  await queryInterface.addColumn('users', 'created_at', {
-    type: DataTypes.DATE,
-    default: NOW
-  })
-  await queryInterface.addColumn('users', 'updated_at', {
-    type: DataTypes.DATE,
-    default: NOW
-  })
-  await queryInterface.addColumn('blogs', 'created_at', {
-    type: DataTypes.DATE,
-    default: NOW
-  })
-  await queryInterface.addColumn('blogs', 'updated_at', {
-    type: DataTypes.DATE,
-    default: NOW
+  await queryInterface.addColumn('blogs', 'userId', {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: { model: 'users', key: 'id' },
   })
 }
 const down = async ({ context: queryInterface }) => {

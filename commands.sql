@@ -16,6 +16,9 @@ VALUES
   ('testUser2', 'https://example.com', 'Test title 2');
 /*  */
 /*  */
+DROP TABLE migrations;
+DROP TABLE blogs;
+DROP TABLE users;
 
 /*  */
 /*  */
