@@ -20,6 +20,10 @@ User.init({
     validate: {
       isEmail: true
     }
+  },
+  isDisabled: {
+    type: DataTypes.BOOLEAN,
+    default: false
   }
 }, {
   sequelize: sequelizeServise.getSequelize(),

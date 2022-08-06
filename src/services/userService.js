@@ -8,10 +8,10 @@ const getAll = async () => await User.findAll({
   }
 })
 
-const findOne = async (searchOptions, { isRead }) => {
+const findOne = async (searchOptions, readingListSearchOptions = {}) => {
   const readingListSearchOptionValues = {}
-  if (isRead) {
-    readingListSearchOptionValues.isRead = isRead
+  if (readingListSearchOptions.isRead) {
+    readingListSearchOptionValues.isRead = readingListSearchOptions.isRead
   }
   const user = await User.findOne({
     where: searchOptions,
