@@ -8,15 +8,20 @@ const getAll = async () => await User.findAll({
   }
 })
 
-const findOne = async (searchOptions) => {
+const findOne = async (searchOptions, { isRead }) => {
+  const readingListSearchOptionValues = {}
+  if (isRead) {
+    readingListSearchOptionValues.isRead = isRead
+  }
   const user = await User.findOne({
     where: searchOptions,
     include: {
       model: Blog,
       as: 'user_blog',
       through: {
-        attributes: ['isRead', 'id']
-      }
+        attributes: ['isRead', 'id'],
+        where: readingListSearchOptionValues
+      },
     }
   })
   return user

@@ -10,8 +10,9 @@ userController.get('/', async (req, res) => {
 
 userController.get('/:id', async (req, res) => {
   const { id } = req.params
-  const { username, name, user_blog } = await userService.findOne({ id })
-  const readings = user_blog.map(({dataValues}) => ({ ...dataValues, reading_lists: undefined, readinglists: [dataValues.reading_lists] }))
+  const { read } = req.query
+  const { username, name, user_blog } = await userService.findOne({ id }, { isRead: read })
+  const readings = user_blog.map(({ dataValues }) => ({ ...dataValues, reading_lists: undefined, readinglists: [dataValues.reading_lists] }))
   res.json({ username, name, readings })
 })
 
